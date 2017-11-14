@@ -13,61 +13,50 @@ function lt_start(lt_message, lt_bubble) {
     var beforeScrollPos = 0;
     var beforePosition = 10;
 
-    /* Message triggs */
-    $.each(lt_message.trigg, function (i, val) {
-            TriggPos[i] = $(val).offset().top - (2 * $(window).height()) / 3;
-        }
-    );
-    $(window).on('scroll', function () {
-        if (beforeScrollPos < $(document).scrollTop()) {
-            /* Trigg message */
-            $.each(lt_message.trigg, function (i, val) {
-                if ($(document).scrollTop() >= TriggPos[i]) {
-                    TriggPos[i] = 99999999999999999;
-                    if ($('.lg-bubble').length == !1) {
-                        $('.lg-container').append(lg_bubble);
-                        /* Bubble settings */
-                        /* color */
-                        $('.lg-bubble, .lg-bubble:before').css('background-color', lt_bubble.color);
-                    }
-                    $('.lg-bubble').html(lt_message.text[i]);
-                    lg_coucou();
-                }
-            });
-
-            /* fall */
-            bottomVal = bottomVal + 8;
-            $('.lg-body').css('bottom', bottomVal + 'px');
-            down(bottomVal);
-        }
-        beforeScrollPos = $(document).scrollTop();
-    });
-
-    function down() {
-        var intervalID = setInterval(function () {
-            if (bottomVal > -8) {
-                $('.lg-body').css('bottom', '' + bottomVal + '');
-                bottomVal--;
-            } else {
-                clearInterval(intervalID);
-            }
-        }, 50);
-    }
-
-    /* Function init */
+    // Function init
     setTimeout(function () {
         $('.lg-body').attr('currentPos', 0);
         lg_blink();
         lg_move();
     }, 1500);
 
-    function lg_coucou() {
-        $('.lg-body .lg-elm-arm-2 path').addClass('coucou');
-        setTimeout(function () {
-            $('.lg-body .lg-elm-arm-2 path').removeClass('coucou');
-        }, 1500);
+    /* Message triggs */
+    $.each(lt_message.trigg, function (i, val) {
+        TriggPos[i] = $(val).offset().top - (2 * $(window).height()) / 3;
+    });
+
+    //On scroll anim
+    $(window).on('scroll', function () {
+        /* Trigg message */
+        checkMessage();
+        if (beforeScrollPos < $(document).scrollTop()) {
+            /* fall */
+            bottomVal = bottomVal + 8;
+            $('.lg-container').css('bottom', bottomVal + 'px');
+            down();
+        }
+        beforeScrollPos = $(document).scrollTop();
+    });
+
+    function checkMessage() {
+        $.each(lt_message.trigg, function (i, val) {
+            if ($(document).scrollTop() >= TriggPos[i]) {
+                if ($('.lg-bubble').length !== 1) {
+                    $('.lg-body').append(lg_bubble);
+                    /* Bubble settings */
+                    /* color */
+                    $('.lg-bubble, .lg-bubble:before').css('background-color', lt_bubble.color);
+                    setTimeout(function () {
+                        $('.lg-body .lg-bubble').remove();
+                    }, 3000)
+                }
+                lg_coucou();
+                $('.lg-bubble').html(lt_message.text[i]);
+            }
+        });
     }
 
+    //Eyes blinking
     function lg_blink() {
         randomTimeBlink = (Math.random() * 2500) + 500;
         randomFastBlink = (Math.random() * 100) + 100;
@@ -80,6 +69,7 @@ function lt_start(lt_message, lt_bubble) {
         }, randomTimeBlink);
     }
 
+    //Movement (top and left/right
     function lg_move() {
         beforePosition = $('.lg-body').attr('currentPos');
         randomTimeMove = (Math.random() * 10000) + 8000;
@@ -98,19 +88,37 @@ function lt_start(lt_message, lt_bubble) {
         setTimeout(function () {
             lg_move();
             $('.lg-body').css({
-                transform: 'translate(' + randomPosition + 'vw) rotate(' + symbol1 * (TimeMoveDelay / 4) + 'deg)',
+                transform: 'translate(' + randomPosition + 'vw)',
                 transition: '' + TimeMoveDelay / 5 + 's'
             });
             $('.lg-body .lg-elm-foot').css({transform: 'rotate(' + symbol1 * 5 + 'deg) translate(' + symbol2 * 5 + 'px)'});
             setTimeout(function () {
                 $('.lg-body .lg-elm-foot').css({transform: 'rotate(0deg) translate(0px)'});
-                $('.lg-body').css({
-                    transform: 'translate(' + randomPosition + 'vw) rotate(0deg)'
-                })
             }, TimeMoveDelay * 190)
         }, randomTimeMove);
     }
 
+    //Make it go down
+    function down() {
+        var intervalID = setInterval(function () {
+            if (bottomVal > -8) {
+                $('.lg-container').css('bottom', bottomVal + 'px');
+                bottomVal = bottomVal - 1;
+            } else {
+                clearInterval(intervalID);
+            }
+        }, 50);
+    }
+
+    //Bubble + hi with arm
+    function lg_coucou() {
+        $('.lg-body .lg-elm-arm-2 path').addClass('coucou');
+        setTimeout(function () {
+            $('.lg-body .lg-elm-arm-2 path').removeClass('coucou');
+        }, 1500);
+    }
+
+    //Setup container HTML
     $('.lg-container').append('<div class="lg-body"></div>');
     $('.lg-body').append(lg_elm);
 }

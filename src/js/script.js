@@ -1,5 +1,5 @@
 var lt_messageTrigg = ['#test', '#test-2', '#test-3'];
-var lt_messageText = ['Salut', 'ca va ?', 'Bien'];
+var lt_messageText = ['WHAOU une div bleu', 'Et là une verte !', 'Tien, un petit bloc rouge'];
 
 var lt_message = {
     trigg: lt_messageTrigg,

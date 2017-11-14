@@ -10,13 +10,6 @@
 <div class="lg-container">
 </div>
 
-
-<form action="formulaire.php" method="post">
-    Name: <input type="text" name="name"><br>
-    E-mail: <input type="text" name="email"><br>
-    <input type="submit">
-</form>
-
 <div class="test" id="test">
 </div>
 <div class="test" id="test-2">
@@ -25,7 +18,7 @@
 </body>
 
 <script src="src/js/jquery.min.js"></script>
-<script src="src/js/LittleGuy.js"></script>
+<script src="src/librairies/LittleGuyJs/LittleGuy.js"></script>
 <script src="src/js/script.js"></script>
 
 </html>
