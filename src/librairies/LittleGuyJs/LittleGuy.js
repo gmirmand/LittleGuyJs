@@ -30,8 +30,8 @@ function lt_start(lt_message, lt_bubble) {
         /* Trigg message */
         checkMessage();
         if (beforeScrollPos < $(document).scrollTop()) {
-            /* fall */
-            bottomVal = bottomVal + 8;
+            console.log(bottomVal);
+            bottomVal = bottomVal + 6;
             $('.lg-container').css('bottom', bottomVal + 'px');
             down();
         }
@@ -50,7 +50,6 @@ function lt_start(lt_message, lt_bubble) {
                         $('.lg-body .lg-bubble').remove();
                     }, 3000)
                 }
-                lg_coucou();
                 $('.lg-bubble').html(lt_message.text[i]);
             }
         });
@@ -71,43 +70,58 @@ function lt_start(lt_message, lt_bubble) {
 
     //Movement (top and left/right
     function lg_move() {
+        var arm;
         beforePosition = $('.lg-body').attr('currentPos');
         randomTimeMove = (Math.random() * 10000) + 8000;
         randomPosition = (Math.random() * 50) + 10;
         TimeMoveDelay = randomPosition - beforePosition;
         $('.lg-body').attr('currentPos', randomPosition);
+        // Il va à gauche
         if (TimeMoveDelay <= 0) {
             symbol1 = -1;
             symbol2 = 1;
-        } else {
+            arm = 2;
+        }
+        // Il va à droite
+        else {
             symbol1 = 1;
             symbol2 = -1;
+            arm = 1;
         }
 
         TimeMoveDelay = Math.abs(TimeMoveDelay);
         setTimeout(function () {
             lg_move();
-            $('.lg-body').css({
-                transform: 'translate(' + randomPosition + 'vw)',
-                transition: '' + TimeMoveDelay / 5 + 's'
-            });
-            $('.lg-body .lg-elm-foot').css({transform: 'rotate(' + symbol1 * 5 + 'deg) translate(' + symbol2 * 5 + 'px)'});
-            setTimeout(function () {
-                $('.lg-body .lg-elm-foot').css({transform: 'rotate(0deg) translate(0px)'});
-            }, TimeMoveDelay * 190)
         }, randomTimeMove);
+        $('.lg-body').css({
+            transform: 'translate(' + randomPosition + 'vw)',
+            transition: '' + TimeMoveDelay / 5 + 's'
+        });
+        $('.lg-body .lg-elm-foot').css({transform: 'rotate(' + symbol1 * 5 + 'deg) translate(' + symbol2 * 5 + 'px)'});
+        $('.lg-body .lg-elm-arm-' + arm + '').css({transform: 'rotate(' + symbol1 * 5 + 'deg) translate(' + symbol2 * 5 + 'px)'});
+        setTimeout(function () {
+            $('.lg-body .lg-elm-foot, .lg-elm-arm').css({transform: 'rotate(0deg) translate(0px)'});
+        }, TimeMoveDelay * 100)
     }
 
     //Make it go down
+    var decrease;
+
     function down() {
         var intervalID = setInterval(function () {
             if (bottomVal > -8) {
+                if (bottomVal > 50)
+                    decrease = 3;
+                else if (bottomVal > 20)
+                    decrease = 2;
+                else
+                    decrease = 1;
                 $('.lg-container').css('bottom', bottomVal + 'px');
-                bottomVal = bottomVal - 1;
+                bottomVal = bottomVal - decrease;
             } else {
                 clearInterval(intervalID);
             }
-        }, 50);
+        }, 250);
     }
 
     //Bubble + hi with arm

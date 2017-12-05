@@ -6,7 +6,8 @@
   position: fixed;
   bottom: -8px;
   left: 0;
-  transition: 1s;
+  font-weight: bold;
+  animation: cloudy 5s infinite ease-in-out;
   .lg-bubble {
     min-height: 20px;
     max-height: 100px;
@@ -37,7 +38,7 @@
     height: 100px;
     transform: translate(10vw);
     transition-timing-function: linear;
-    animation: cloudy 3s infinite;
+    animation: cloudy 5s infinite;
     transition: 0.5s;
     svg {
       overflow: inherit;
@@ -55,8 +56,10 @@
           stroke-width: 2px;
           stroke: orange;
           transition: 0.5s;
+          animation: flame 2s infinite;
         }
         &-arm {
+          transition: 1s;
           &-1 {
             path {
               transform-origin: 10% 0;
@@ -102,7 +105,19 @@
 }
 
 @keyframes cloudy {
+  10% {
+    margin-bottom: 0px;
+  }
   50% {
-    margin-bottom: 5px;
+    margin-bottom: 9px;
+  }
+  60% {
+    margin-bottom: 9px;
+  }
+}
+
+@keyframes flame {
+  50% {
+    fill: #ff7400;
   }
 }

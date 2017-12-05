@@ -1,11 +1,13 @@
 .lg-container {
-  font-family: Arial sans-serif;
+  font-family: Arial, sans-serif;
   z-index: 99999999;
   width: 100px;
   height: 100px;
   position: fixed;
   bottom: -8px;
-  left: 0; }
+  left: 0;
+  font-weight: bold;
+  animation: cloudy 5s infinite ease-in-out; }
   .lg-container .lg-bubble {
     min-height: 20px;
     max-height: 100px;
@@ -34,7 +36,7 @@
     height: 100px;
     transform: translate(10vw);
     transition-timing-function: linear;
-    animation: cloudy 3s infinite;
+    animation: cloudy 5s infinite;
     transition: 0.5s;
     /* Bras */
     /* Yeux */ }
@@ -51,11 +53,14 @@
         z-index: -1;
         stroke-width: 2px;
         stroke: orange;
-        transition: 0.5s; }
-      .lg-container .lg-body .lg-elm-arm-1 path {
-        transform-origin: 10% 0; }
-      .lg-container .lg-body .lg-elm-arm-2 path {
-        transform-origin: 20% 20%; }
+        transition: 0.5s;
+        animation: flame 2s infinite; }
+      .lg-container .lg-body .lg-elm-arm {
+        transition: 1s; }
+        .lg-container .lg-body .lg-elm-arm-1 path {
+          transform-origin: 10% 0; }
+        .lg-container .lg-body .lg-elm-arm-2 path {
+          transform-origin: 20% 20%; }
       .lg-container .lg-body .lg-elm-head .eyes {
         fill: white; }
     .lg-container .lg-body .coucou {
@@ -74,5 +79,13 @@
     transform: rotate(0); } }
 
 @keyframes cloudy {
+  10% {
+    margin-bottom: 0px; }
   50% {
-    margin-bottom: 5px; } }
+    margin-bottom: 9px; }
+  60% {
+    margin-bottom: 9px; } }
+
+@keyframes flame {
+  50% {
+    fill: #ff7400; } }
