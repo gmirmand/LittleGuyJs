@@ -73,3 +73,5 @@ C'est cadeau si jamais :
  > - <i class="icon-link"> https://github.com/gmirmand
  > - <i class="icon-link"> https://www.linkedin.com/in/gmirmand/
 
+
+![Alt text](src/img/LittleGuy.png?raw=true "LittleGuy screenshot")
