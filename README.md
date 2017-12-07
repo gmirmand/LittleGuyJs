@@ -59,6 +59,13 @@ Enfin, il suffit de surcharger *LittleGuyJs.lt_message* avec le paramètre *trig
 Vous pouvez également changer la couleur du texte de bulle de dialogue de LittleGuy en faisant simplement :
 
     LittleGuyJs.lt_bubble = { color: '#123456' };
+
+#### <i class="icon-wrench"> Update plugin
+
+Rien de plus simple ! Si une nouvelle version a été upload, il suffit de se rendre dans le dossier du plugin (LittleGuyJs) et de
+`git pull`
+
+
 #### <i class="icon-thumbs-up-alt"> YEAAH Contact me ?
 
 C'est cadeau si jamais : 
