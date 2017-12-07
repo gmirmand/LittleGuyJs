@@ -25,6 +25,7 @@ Au niveau de la mise en place de ce plugin, rien de plus simple !
     
     **HTML :** <div class="lg-container"></div> (sinon, la structure se place au niveau du tag <body>)
 
+ET PAS DE PACKAGE NPM ???! -> _Peu-être un jour <3_
 
 ----------
 
