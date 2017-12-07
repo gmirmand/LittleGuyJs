@@ -21,7 +21,10 @@
     bottom: 70%;
     left: 100%;
     text-align: center;
+    border: 1px solid black;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
     &:before {
+      border-top: 1px solid black;
       position: absolute;
       bottom: 10px;
       left: -30px;
@@ -63,7 +66,7 @@
           &-1 {
             path {
               transform-origin: 80% 20%;
-              &.show{
+              &.show {
                 animation: showLeft .5s;
               }
             }
@@ -71,7 +74,7 @@
           &-2 {
             path {
               transform-origin: 20% 20%;
-              &.show{
+              &.show {
                 animation: showRight .5s;
               }
             }

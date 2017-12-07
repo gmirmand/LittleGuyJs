@@ -6,6 +6,4 @@ LittleGuyJs.lt_message = {
     text: lt_messageText
 };
 
-LittleGuyJs.lt_bubble = {
-    color: 'white'
-};
+LittleGuyJs.lt_bubble = { color: '#123456' };

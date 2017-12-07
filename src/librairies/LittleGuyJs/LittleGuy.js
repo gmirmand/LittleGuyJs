@@ -77,12 +77,15 @@ LittleGuyJs = {
                     /* Bubble settings */
                     $('.lg-body').append(LittleGuyJs.lg_bubble);
                     /* color */
-                    $('.lg-bubble, .lg-bubble:before').css('background-color', LittleGuyJs.lt_bubble.color);
+                    $('.lg-bubble').css('color', LittleGuyJs.lt_bubble.color);
                     setTimeout(function () {
                         $('.lg-body .lg-bubble').remove();
                     }, 3000)
                 }
                 $('.lg-bubble').html(LittleGuyJs.lt_message.text[i]);
+                LittleGuyJs.TriggPos.splice('', (i + 1));
+                LittleGuyJs.lt_message.text.splice('', (i + 1));
+                LittleGuyJs.lt_message.trigg.splice('', (i + 1));
             }
 
             //Show (move arm)
@@ -166,21 +169,21 @@ LittleGuyJs = {
     },
 
     //Show
-    show: function (DivPoxX) {
+    show: function (DivPosX) {
         $body = $('#lg-body');
         var GuyPosX = {
             left: $body.offset().left,
             right: $body.offset().left + $body.outerWidth()
         };
         //LittleGuy est sur la div
-        if (GuyPosX.left > DivPoxX.left && GuyPosX.right > DivPoxX.right) {
+        if (GuyPosX.left > DivPosX.left && GuyPosX.right < DivPosX.right) {
             $('.lg-body .lg-elm-arm-1 path, .lg-body .lg-elm-arm-2 path').addClass('show');
             setTimeout(function () {
                 $('.lg-body .lg-elm-arm-1 path, .lg-body .lg-elm-arm-2 path').removeClass('show');
             }, 1500);
         }
         //LittleGuy est à gauche
-        else if (GuyPosX.left < DivPoxX.left) {
+        else if (GuyPosX.left < DivPosX.left) {
             $('.lg-body .lg-elm-arm-2 path').addClass('show');
             setTimeout(function () {
                 $('.lg-body .lg-elm-arm-2 path').removeClass('show');
@@ -195,7 +198,7 @@ LittleGuyJs = {
         }
     },
 
-    //Bubble + hi with arm (not use)
+    //Bubble + hi with arm (not use yet)
     lg_coucou: function () {
         $('.lg-body .lg-elm-arm-2 path').addClass('coucou');
         setTimeout(function () {
