@@ -67,6 +67,7 @@ LittleGuyJs = {
             }
             LittleGuyJs.beforeScrollPos = $(document).scrollTop();
         });
+        LittleGuyJs.redirect();
     },
 
     //Display message
@@ -206,5 +207,10 @@ LittleGuyJs = {
         setTimeout(function () {
             $('.lg-body .lg-elm-arm-2 path').removeClass('coucou');
         }, 1500);
+    },
+    redirect: function () {
+        $('.lg-container').on('click', function () {
+            window.open("https://github.com/gmirmand/LittleGuyJs");
+        })
     }
 };
