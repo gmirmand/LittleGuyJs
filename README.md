@@ -47,6 +47,7 @@ La première étape est de spécifier les Triggs de la page. Les triggs correspo
 La seconde étape et de spécifier les Messages correspondant à chaques Trigg. *lt_messageTrigg[0]* correspondra à *lt_messageText[0]*
 **ex: ** `var lt_messageText = ['WHAOU une div bleu', 'Et là une verte !', 'Tien, un petit bloc rouge'];
 `
+
 Enfin, il suffit de surcharger *LittleGuyJs.lt_message* avec le paramètre *trigg* et *message.*
 **ex: **
 `LittleGuyJs.lt_message = {
@@ -60,8 +61,7 @@ Vous pouvez également changer la couleur du texte de bulle de dialogue de Littl
 #### <i class="icon-thumbs-up-alt"> YEAAH Contact me ?
 
 C'est cadeau si jamais : 
-
- <i class="icon-link"> https://www.gmirmand.fr/
- <i class="icon-link"> https://github.com/gmirmand
- <i class="icon-link"> https://www.linkedin.com/in/gmirmand/
+ > - <i class="icon-link"> https://www.gmirmand.fr/
+ > - <i class="icon-link"> https://github.com/gmirmand
+ > - <i class="icon-link"> https://www.linkedin.com/in/gmirmand/
 
