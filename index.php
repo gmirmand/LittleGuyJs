@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="src/css/LittleGuy.css">
 </head>
 <body>
-<div class="lg-container"></div>
 
 <div class="test" id="test">
 </div>

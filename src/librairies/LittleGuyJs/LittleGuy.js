@@ -47,6 +47,8 @@ LittleGuyJs = {
         }, 1500);
 
         //Setup container HTML
+        if ($('.lg-container').length === 0)
+            $('body').append('<div class="lg-container"></div>');
         $('.lg-container').append('<div class="lg-body" id="lg-body"></div>');
         $('.lg-body').append(LittleGuyJs.lg_elm);
 
