@@ -62,12 +62,18 @@
           transition: 1s;
           &-1 {
             path {
-              transform-origin: 10% 0;
+              transform-origin: 80% 20%;
+              &.show{
+                animation: showLeft .5s;
+              }
             }
           }
           &-2 {
             path {
               transform-origin: 20% 20%;
+              &.show{
+                animation: showRight .5s;
+              }
             }
           }
         }
@@ -101,6 +107,18 @@
   }
   75% {
     transform: rotate(0);
+  }
+}
+
+@keyframes showRight {
+  66% {
+    transform: rotate(-100deg);
+  }
+}
+
+@keyframes showLeft {
+  66% {
+    transform: rotate(100deg);
   }
 }
 

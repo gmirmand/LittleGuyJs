@@ -58,9 +58,13 @@
       .lg-container .lg-body .lg-elm-arm {
         transition: 1s; }
         .lg-container .lg-body .lg-elm-arm-1 path {
-          transform-origin: 10% 0; }
+          transform-origin: 80% 20%; }
+          .lg-container .lg-body .lg-elm-arm-1 path.show {
+            animation: showLeft .5s; }
         .lg-container .lg-body .lg-elm-arm-2 path {
           transform-origin: 20% 20%; }
+          .lg-container .lg-body .lg-elm-arm-2 path.show {
+            animation: showRight .5s; }
       .lg-container .lg-body .lg-elm-head .eyes {
         fill: white; }
     .lg-container .lg-body .coucou {
@@ -77,6 +81,14 @@
     transform: rotate(-100deg); }
   75% {
     transform: rotate(0); } }
+
+@keyframes showRight {
+  66% {
+    transform: rotate(-100deg); } }
+
+@keyframes showLeft {
+  66% {
+    transform: rotate(100deg); } }
 
 @keyframes cloudy {
   10% {
