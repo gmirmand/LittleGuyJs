@@ -54,7 +54,7 @@ LittleGuyJs = {
 
         /* Message triggs */
         $.each(LittleGuyJs.lt_message.trigg, function (i, val) {
-            LittleGuyJs.TriggPos[i] = $(val).offset().top - (2 * $(window).height()) / 3;
+            LittleGuyJs.TriggPos[i] = $(val).offset().top - ($(window).height());
         });
         //On scroll anim
         $(window).on('scroll', function () {

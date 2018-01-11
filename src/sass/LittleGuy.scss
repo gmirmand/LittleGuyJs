@@ -7,6 +7,7 @@
   bottom: -8px;
   left: 0;
   font-weight: bold;
+  -webkit-animation: cloudy 5s infinite ease-in-out;
   animation: cloudy 5s infinite ease-in-out;
   &:hover {
     cursor: pointer;
@@ -36,15 +37,24 @@
       border-bottom: 20px solid transparent;
       border-right: 40px solid white;
       content: " ";
+      -webkit-transform: rotate(-15deg) scale(1, -1);
+      -ms-transform: rotate(-15deg) scale(1, -1);
       transform: rotate(-15deg) scale(1, -1);
     }
   }
   .lg-body {
     width: 100px;
     height: 100px;
+    -webkit-transform: translate(10vw);
+    -ms-transform: translate(10vw);
     transform: translate(10vw);
+    -webkit-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
     transition-timing-function: linear;
+    -webkit-animation: cloudy 5s infinite;
     animation: cloudy 5s infinite;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
     svg {
       overflow: inherit;
@@ -61,23 +71,34 @@
           z-index: -1;
           stroke-width: 2px;
           stroke: orange;
+          -webkit-transition: 0.5s;
+          -o-transition: 0.5s;
           transition: 0.5s;
+          -webkit-animation: flame 2s infinite;
           animation: flame 2s infinite;
         }
         &-arm {
+          -webkit-transition: 1s;
+          -o-transition: 1s;
           transition: 1s;
           &-1 {
             path {
+              -webkit-transform-origin: 33% 33%;
+              -ms-transform-origin: 33% 33%;
               transform-origin: 33% 33%;
               &.show {
+                -webkit-animation: showLeft .5s;
                 animation: showLeft .5s;
               }
             }
           }
           &-2 {
             path {
+              -webkit-transform-origin: 66% 33%;
+              -ms-transform-origin: 66% 33%;
               transform-origin: 66% 33%;
               &.show {
+                -webkit-animation: showRight .5s;
                 animation: showRight .5s;
               }
             }
@@ -92,6 +113,7 @@
     }
     /* Bras */
     .coucou {
+      -webkit-animation: coucou 1s;
       animation: coucou 1s;
     }
     /* Yeux */
@@ -101,30 +123,81 @@
   }
 }
 
-@keyframes coucou {
+@-webkit-keyframes coucou {
   0% {
+    -webkit-transform: rotate(-100deg);
     transform: rotate(-100deg);
   }
   25% {
+    -webkit-transform: rotate(0);
     transform: rotate(0);
   }
   50% {
+    -webkit-transform: rotate(-100deg);
     transform: rotate(-100deg);
   }
   75% {
+    -webkit-transform: rotate(0);
     transform: rotate(0);
+  }
+}
+
+@keyframes coucou {
+  0% {
+    -webkit-transform: rotate(-100deg);
+    transform: rotate(-100deg);
+  }
+  25% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  50% {
+    -webkit-transform: rotate(-100deg);
+    transform: rotate(-100deg);
+  }
+  75% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+
+@-webkit-keyframes showRight {
+  66% {
+    -webkit-transform: rotate(-100deg);
+    transform: rotate(-100deg);
   }
 }
 
 @keyframes showRight {
   66% {
+    -webkit-transform: rotate(-100deg);
     transform: rotate(-100deg);
+  }
+}
+
+@-webkit-keyframes showLeft {
+  66% {
+    -webkit-transform: rotate(100deg);
+    transform: rotate(100deg);
   }
 }
 
 @keyframes showLeft {
   66% {
+    -webkit-transform: rotate(100deg);
     transform: rotate(100deg);
+  }
+}
+
+@-webkit-keyframes cloudy {
+  10% {
+    margin-bottom: 0px;
+  }
+  50% {
+    margin-bottom: 9px;
+  }
+  60% {
+    margin-bottom: 9px;
   }
 }
 
@@ -137,6 +210,12 @@
   }
   60% {
     margin-bottom: 9px;
+  }
+}
+
+@-webkit-keyframes flame {
+  50% {
+    fill: #ff7400;
   }
 }
 
