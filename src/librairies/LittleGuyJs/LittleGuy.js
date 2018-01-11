@@ -76,29 +76,27 @@ LittleGuyJs = {
             var ScrollTop = $(document).scrollTop();
             var minTop = LittleGuyJs.TriggPos[i];
             if (ScrollTop >= minTop) {
-                if ($('.lg-bubble').length !== 1) {
-                    /* Bubble settings */
-                    $('.lg-body').append(LittleGuyJs.lg_bubble);
-                    /* color */
-                    $('.lg-bubble').css('color', LittleGuyJs.lt_bubble.color);
-                    setTimeout(function () {
-                        $('.lg-body .lg-bubble').remove();
-                    }, 3000)
+                //Show (move arm)
+                if (LittleGuyJs.ScrollPos < ScrollTop) {
+                    var DivPosX = {
+                        left: $(val).offset().left,
+                        right: $(val).offset().left + $(val).outerWidth()
+                    };
+                    LittleGuyJs.show(DivPosX);
+                    LittleGuyJs.ScrollPos = ScrollTop;
                 }
+                LittleGuyJs.TriggPos[i] = -1;
+                /* Bubble settings */
+                $('.lg-body').append(LittleGuyJs.lg_bubble);
+                /* color */
+                $('.lg-bubble').css('color', LittleGuyJs.lt_bubble.color);
+                setTimeout(function () {
+                    $('.lg-body .lg-bubble').remove();
+                }, 3000)
                 $('.lg-bubble').html(LittleGuyJs.lt_message.text[i]);
                 LittleGuyJs.TriggPos.splice('', (i + 1));
                 LittleGuyJs.lt_message.text.splice('', (i + 1));
                 LittleGuyJs.lt_message.trigg.splice('', (i + 1));
-            }
-
-            //Show (move arm)
-            if (LittleGuyJs.ScrollPos < ScrollTop) {
-                var DivPosX = {
-                    left: $(val).offset().left,
-                    right: $(val).offset().left + $(val).outerWidth()
-                };
-                LittleGuyJs.show(DivPosX);
-                LittleGuyJs.ScrollPos = ScrollTop;
             }
         });
     },
@@ -179,14 +177,14 @@ LittleGuyJs = {
             right: $body.offset().left + $body.outerWidth()
         };
         //LittleGuy est sur la div
-        if (GuyPosX.left > DivPosX.left && GuyPosX.right < DivPosX.right) {
-            $('.lg-body .lg-elm-arm-1 path, .lg-body .lg-elm-arm-2 path').addClass('show');
-            setTimeout(function () {
-                $('.lg-body .lg-elm-arm-1 path, .lg-body .lg-elm-arm-2 path').removeClass('show');
-            }, 1500);
-        }
+        // if (GuyPosX.left > DivPosX.left && GuyPosX.right < DivPosX.right) {
+        $('.lg-body .lg-elm-arm-1 path, .lg-body .lg-elm-arm-2 path').addClass('show');
+        setTimeout(function () {
+            $('.lg-body .lg-elm-arm-1 path, .lg-body .lg-elm-arm-2 path').removeClass('show');
+        }, 1500);
+        // }
         //LittleGuy est à gauche
-        else if (GuyPosX.left < DivPosX.left) {
+        /*else if (GuyPosX.left < DivPosX.left) {
             $('.lg-body .lg-elm-arm-2 path').addClass('show');
             setTimeout(function () {
                 $('.lg-body .lg-elm-arm-2 path').removeClass('show');
@@ -198,7 +196,7 @@ LittleGuyJs = {
             setTimeout(function () {
                 $('.lg-body .lg-elm-arm-1 path').removeClass('show');
             }, 1500);
-        }
+        }*/
     },
 
     //Bubble + hi with arm (not use yet)

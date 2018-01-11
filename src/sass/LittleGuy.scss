@@ -68,7 +68,7 @@
           transition: 1s;
           &-1 {
             path {
-              transform-origin: 80% 20%;
+              transform-origin: 33% 33%;
               &.show {
                 animation: showLeft .5s;
               }
@@ -76,7 +76,7 @@
           }
           &-2 {
             path {
-              transform-origin: 20% 20%;
+              transform-origin: 66% 33%;
               &.show {
                 animation: showRight .5s;
               }

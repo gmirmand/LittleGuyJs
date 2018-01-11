@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  height: 350vh;
+}
+
 .test {
   height: 150vh;
   width: 100%;
@@ -10,15 +14,35 @@
 }
 
 #test {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 125vh;
+  left: 45vw;
   background-color: lightseagreen;
   &-2 {
+    width: 125px;
+    height: 125px;
+    position: absolute;
+    right: 0;
+    top: 200vh;
     background-color: lightgreen;
   }
   &-3 {
     width: 100px;
     height: 100px;
     position: absolute;
-    bottom: 50%;
+    top: 270vh;
     background: red;
   }
+}
+
+#explain {
+  position: absolute;
+  top: 45vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 72px;
 }

@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<div class="test" id="test">
-</div>
-<div class="test" id="test-2">
-    <div id="test-3"></div>
-</div>
+<div id="explain">Scroll vers le bas</div>
+
+<div class="test" id="test"></div>
+<div class="test" id="test-2"></div>
+<div class="test" id="test-3"></div>
 </body>
 
 <script src="src/js/jquery.min.js"></script>

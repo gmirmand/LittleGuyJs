@@ -25,13 +25,11 @@ Au niveau de la mise en place de ce plugin, rien de plus simple !
     
     **HTML :** <div class="lg-container"></div> (sinon, la structure se place au niveau du tag <body>)
 
-ET PAS DE PACKAGE NPM ???! -> _Peu-être un jour <3_
-
 ----------
 
 
 #### <i class="icon-folder-open"></i> Dependencies
-Ce plugin nécessite l'importation de [JQuery](http://jquery.com/download/). Veuillez à bien l'importer antérieurement à l'importation du Script LittleGuyJs
+Ce plugin nécessite l'importation de [JQuery](http://jquery.com/download/).(Développé avec JQuery v3.2.1) Veuillez à bien l'importer antérieurement à l'importation du Script LittleGuyJs
 
 
 ----------
@@ -42,14 +40,20 @@ Ce plugin nécessite l'importation de [JQuery](http://jquery.com/download/). Veu
 Comme expliqué, un petit robot va se promener sur votre écran et vous afficher, à des points clés de la page des informations. Pour ce faire, il vous faut spécifier les Triggs des dialogues ainsi que leur contenu.
 > **PS:** Dès l'ajout du script d'importation de la librairie, celui-ci est exécuté.
 
-La première étape est de spécifier les Triggs de la page. Les triggs corresponde à des id (donc unique). Ils se stock dans *lt_messageTrigg*
+La première étape est de spécifier les Triggs de la page. Les triggs corresponde à des id (donc unique). Ils doivent être défini dans *lt_messageTrigg*
+
 **ex: **     `var lt_messageTrigg = ['#test', '#test-2', '#test-3'];`
 
 La seconde étape et de spécifier les Messages correspondant à chaques Trigg. *lt_messageTrigg[0]* correspondra à *lt_messageText[0]*
+
 **ex: ** `var lt_messageText = ['WHAOU une div bleu', 'Et là une verte !', 'Tien, un petit bloc rouge'];
 `
 
+
+Voir le fichier JS d'exemple [ICI](https://github.com/gmirmand/LittleGuyJs/blob/master/src/js/script.js)
+
 Enfin, il suffit de surcharger *LittleGuyJs.lt_message* avec le paramètre *trigg* et *message.*
+
 **ex: **
 `LittleGuyJs.lt_message = {
     trigg: lt_messageTrigg,
@@ -66,7 +70,7 @@ Rien de plus simple ! Si une nouvelle version a été upload, il suffit de se re
 `git pull`
 
 
-#### <i class="icon-thumbs-up-alt"> YEAAH Contact me ?
+#### <i class="icon-thumbs-up-alt"> Contact me ?
 
 C'est cadeau si jamais : 
  > - <i class="icon-link"> https://www.gmirmand.fr/
