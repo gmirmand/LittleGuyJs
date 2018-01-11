@@ -49,9 +49,6 @@ La seconde étape et de spécifier les Messages correspondant à chaques Trigg. 
 **ex: ** `var lt_messageText = ['WHAOU une div bleu', 'Et là une verte !', 'Tien, un petit bloc rouge'];
 `
 
-
-Voir le fichier JS d'exemple [ICI](https://github.com/gmirmand/LittleGuyJs/blob/master/src/js/script.js)
-
 Enfin, il suffit de surcharger *LittleGuyJs.lt_message* avec le paramètre *trigg* et *message.*
 
 **ex: **
@@ -63,6 +60,8 @@ Enfin, il suffit de surcharger *LittleGuyJs.lt_message* avec le paramètre *trig
 Vous pouvez également changer la couleur du texte de bulle de dialogue de LittleGuy en faisant simplement :
 
     LittleGuyJs.lt_bubble = { color: '#123456' };
+
+Voir le fichier JS d'exemple [ICI](https://github.com/gmirmand/LittleGuyJs/blob/master/src/js/script.js)
 
 #### <i class="icon-wrench"> Update plugin
 
